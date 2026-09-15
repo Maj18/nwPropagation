@@ -191,7 +191,9 @@ class networkPropagation():
     """
     Run network propagation on mulitple alpha values
     """  
-    def NetworkPropagationWmultiAlpha(self, ALPHAS, outdir, disease="Disease", Ks=[10, 20, 50]):
+    def NetworkPropagationWmultiAlpha(self, 
+        ALPHAS = np.concatenate(([0.0],np.linspace(0.001, 0.01, 10), np.linspace(0.02, 0.9, 89))), 
+        outdir, disease="Disease", Ks=[10, 20, 50]):
         for alpha in tqdm(ALPHAS):
             results = rankNode(self, alpha=alpha, disease=disease, Ks=Ks)
             
