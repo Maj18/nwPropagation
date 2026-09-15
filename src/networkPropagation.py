@@ -16,7 +16,7 @@ class networkPropagation():
     """
     Initiate class.
     Parameters:
-        feature_pval_file: a processed data file, e.g. from differential analysis, it needs to have at least 3 columns: ´Pvalue´, ´NCBI_id´, ´Error´
+        feature_pval_file: a processed data file, e.g. from differential analysis, it needs to have at least 2 columns: ´Pvalue´, ´NCBI_id´, ´Uniprot´, ´Gene´
     """
     def __init__(self, feature_pval_file):
         PACKAGE_ROOT = Path(__file__).parent
@@ -43,7 +43,7 @@ class networkPropagation():
         network: a network name
     """
     def load_graph_nx(self, network):
-        print("Loading {} graph - 7901_NetworkPropagation.py:46".format(network))
+        print("Loading {} graph  7901_NetworkPropagation.py:51 - networkPropagation.py:46".format(network))
         df = pd.read_csv(network_files[network], dtype={'node1': str, 'node2': str})[["node1", "node2"]] ######
         graph = from_pandas_edgelist(df, source="node1", target="node2")
         # graph["names"] = graph["names"].astype(str)
@@ -62,7 +62,7 @@ class networkPropagation():
         pegasus_scores = {}
         for i, row in data.iterrows():
             # pv = np.maximum(min_pval, np.minimum(1, row["Pvalue"]))
-            pv = row["Pvalue"] if row["Pvalue"]>0.0 else row["Error"]
+            pv = row["Pvalue"] if row["Pvalue"]>0.0 else pd.NA
             pegasus_scores[row["NCBI_id"]] = np.maximum(1e-16, -np.log10(pv))
         # pegasus_ncbi_genes = set(pegasus_scores.keys())
         data["Score"] = data["NCBI_id"].map(pegasus_scores)
@@ -107,6 +107,7 @@ class networkPropagation():
         scores, graph, data, seeds, alpha = perform_rwr_nx(self, alpha, network)
         node2idx = {str(n): i for i, n in enumerate(graph.nodes)}
         idx2node = {v: k for k, v in node2idx.items()}
+        ncbi2uniprot = dict(zip(data.NCBI_id, data.Uniprot))
         ncbi2gene = dict(zip(data.NCBI_id, data.Gene))
         seeds_vals = np.fromiter(seeds.values(), dtype="float")
         max_val = np.max(seeds_vals[~np.isinf(seeds_vals)])
@@ -115,7 +116,8 @@ class networkPropagation():
             row = {}
             row["Idx"] = node2idx[node]
             row["Gene NCBI ID"] = node
-            row["Symbol"] = ncbi2gene[node] if node in ncbi2gene.keys() else "-" #####????
+            row["Uniprot"] = ncbi2uniprot[node] if node in ncbi2uniprot.keys() else "-"
+            row["Symbol"] = ncbi2gene[node] if node in ncbi2gene.keys() else "-"
             init_score = seeds[node]
             if np.isinf(init_score):
                 init_score = max_val
