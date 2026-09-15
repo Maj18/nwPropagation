@@ -9,7 +9,7 @@
 ## 🚀 Key Features
 
 *   **Five networks**: BioPlex3, HumanNet, PCNet, ProteomeHD, STRING
-*   **Random walk network propagation**: PageRank
+*   **Random walk with restart network propagation**: PageRank
 
 
 ---
