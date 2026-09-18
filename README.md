@@ -3,6 +3,7 @@
 ![nwPropagation Logo](https://raw.githubusercontent.com/Maj18/nwPropagation/refs/heads/main/doc/logo.tiff)
 
 ![Version](https://img.shields.io/badge/version-1.0.2-brightgreen) 
+
 ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22833704.svg)
 
 **nwPropagation** is a Python package that provides a flexible framework for propagating signals from differentially altered molecular features across biological interaction networks. It supports multiple network resources, Random Walk with Restart, hyperparameter selection, and visualization of propagation results.
