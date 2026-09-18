@@ -8,8 +8,12 @@
 
 ## 🚀 Key Features
 
-*   **Five networks**: BioPlex3, HumanNet, PCNet, ProteomeHD, STRING
-*   **Random Walk with Restart network propagation**
+- Integrates five biological networks: **BioPlex3**, **HumanNet**, **PCNet**, **ProteomeHD**, and **STRING**.
+- Implements **Random Walk with Restart (RWR)** for network propagation.
+- Uses **power iteration** to calculate stable node-visiting probabilities.
+- Provides a framework for selecting the optimal **restart probability ($\alpha$)**.
+- Includes built-in functions for **visualizing propagation results**.
+
 
 
 ## Why Network Propagation
