@@ -2,7 +2,7 @@
 
 ![nwPropagation Logo](https://raw.githubusercontent.com/Maj18/nwPropagation/refs/heads/main/doc/logo.tiff)
 
-**nwProgation** is a network propagation framework designed to increase your power in identifying candiate marker genes in the situation of small sample sizes.
+**nwProgation** is a python package providing a framework for performing random walk with restart network propagation.
 
 ---
 
