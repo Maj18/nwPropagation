@@ -1,0 +1,9 @@
+LICENSE.py
+README.md
+pyproject.toml
+src/__init__.py
+src/networkPropagation.py
+src/work.egg-info/PKG-INFO
+src/work.egg-info/SOURCES.txt
+src/work.egg-info/dependency_links.txt
+src/work.egg-info/top_level.txt
