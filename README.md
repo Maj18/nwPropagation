@@ -2,7 +2,7 @@
 
 ![nwPropagation Logo](https://raw.githubusercontent.com/Maj18/nwPropagation/refs/heads/main/doc/logo.tiff)
 
-**nwProgation** is a python package providing a framework for performing random walk with restart network propagation.
+**nwProgation** is a python package providing a framework for performing network propagation starting from your differential features.
 
 ---
 
@@ -14,25 +14,12 @@
 
 ## Why Network Propagation
 
-- **Captures indirect molecular effects:** Identifies genes or proteins influenced through interaction networks, even when they are not directly detected as significant.
+Traditional differential expression (DE) analyses evaluate proteins as independent entities, frequently failing to capture the systemic nature of complex skin pathologies. 
+To overcome these limitations, we deployed network propagation via Random Walk with Restart (RWR) for three primary reasons:
 
-- **Improves biological signal:** Combines signals from related genes or proteins, helping distinguish pathway-level patterns from isolated statistical noise.
-
-- **Prioritizes disease-relevant candidates:** Highlights network-connected genes that may contribute to disease mechanisms or serve as potential therapeutic targets.
-
-- **Reveals affected pathways and modules:** Groups related molecular components to uncover biological processes associated with the phenotype.
-
-- **Handles incomplete knowledge:** Uses information from known interactions to infer potential roles for poorly characterized genes.
-
-- **Reduces dependence on strict significance cutoffs:** Allows moderately altered but well-connected genes to contribute to the analysis.
-
-- **Integrates heterogeneous data:** Combines experimental results with protein–protein interaction, regulatory, pathway, or gene-association networks.
-
-- **Identifies network proximity:** Measures whether disease-associated genes, drug targets, or differentially expressed genes are close to one another in the network.
-
-- **Supports hypothesis generation:** Suggests candidate genes, pathways, and mechanisms for follow-up experiments.
-
-- **Improves prioritization of omics results:** Ranks large gene or protein lists according to their network relevance rather than relying only on fold change or adjusted *p*-value.
+1. **Prioritization of Sub-threshold Drivers:** It rescues biologically critical genes that fail to pass strict False Discovery Rate (FDR) thresholds due to low transcript abundance or statistical noise, provided they reside within a high-density disease neighborhood.
+2. **Capture of Post-Translational Signaling:** It identifies key signaling hubs and structural anchors that are regulated via physical interactions or post-translational modifications (e.g., phosphorylation) rather than transcriptional changes.
+3. **Functional Module Discovery:** By projecting statistical values onto a physical protein-protein interaction (PPI) network, it filters out isolated false positives and highlights highly coordinated, mechanistically linked sub-networks (e.g., cell-adhesion and extracellular matrix remodeling complexes).
 
 
 ---
