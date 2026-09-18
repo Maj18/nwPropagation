@@ -1,6 +1,7 @@
 # nwPropagation
 
 ![nwPropagation Logo](https://raw.githubusercontent.com/Maj18/nwPropagation/refs/heads/main/doc/logo.tiff)
+
 ![Version](https://img.shields.io/badge/version-1.0.2-brightgreen) 
 ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22833704.svg)
 
