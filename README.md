@@ -2,7 +2,7 @@
 
 ![nwPropagation Logo](https://raw.githubusercontent.com/Maj18/nwPropagation/refs/heads/main/doc/logo.tiff)
 
-**nwProgation** is a python package providing a framework for performing network propagation starting from your differential features.
+**nwPropagation** is a Python package that provides a flexible framework for propagating signals from differentially altered molecular features across biological interaction networks. It supports multiple network resources, Random Walk with Restart, hyperparameter selection, and visualization of propagation results.
 
 ---
 
